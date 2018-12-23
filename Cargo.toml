@@ -1,0 +1,12 @@
+[package]
+name = "transmission-sys"
+version = "0.1.0"
+authors = ["Steven vanZyl <rushsteve12@gmail.com>"]
+edition = "2018"
+links = "transmission"
+
+[dependencies]
+
+[build-dependencies]
+cmake = "^0.1"
+bindgen = "^0.45"
