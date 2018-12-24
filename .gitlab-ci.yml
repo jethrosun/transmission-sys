@@ -13,4 +13,5 @@ before_script:
 build:cargo:
   script:
   - rustc --version && cargo --version      # Print version info for debugging
+  - git submodule update --init --recursive
   - cargo build
