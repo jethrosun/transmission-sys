@@ -6,10 +6,11 @@ Rust bindings for [Transmission](https://transmissionbt.com/) using [Rust-Bindge
 First make sure you have all the dependencies listed below then run
 
 `git submodule update --init --recursive`
+
 `cargo build`
 
 ### Dependencies
-- gcc
+- gcc (or Clang)
 - libclang-devel
 - libopenssl-devel
 - libcurl-devel
