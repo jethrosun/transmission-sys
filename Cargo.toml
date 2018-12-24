@@ -1,11 +1,17 @@
 [package]
 name = "transmission-sys"
 version = "0.1.0"
-authors = ["Steven vanZyl <rushsteve12@gmail.com>"]
+authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
 edition = "2018"
-links = "transmission"
+description = "Rust bindings for the Transmission bittorrent client."
+repository = "https://gitlab.com/rushsteve1/transmission-sys"
+readme = "README.md"
+keywords = ["torrent", "bittorrent", "transmission"]
+license = "MIT"
+license-file = "LICENSE"
 
-[dependencies]
+[badges]
+gitlab = { repository = "https://gitlab.com/rushsteve1/transmission-sys", branch = "master" }
 
 [build-dependencies]
 bindgen = "^0.45"
