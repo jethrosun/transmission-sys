@@ -7,11 +7,10 @@ image: "rust:latest"
 # You will often need this when you (or any of your dependencies) depends on C code.
 before_script:
   - apt-get update -yqq
-  - apt-get install -yqq --no-install-recommends build-essential libcurl-dev libevent-dev libclang-dev libssl-dev
+  - apt-get install -yqq --no-install-recommends build-essential libcurl4-openssl-dev libevent-dev libclang-dev libssl-dev
 
 # Use cargo to test the project
-test:cargo:
+build:cargo:
   script:
   - rustc --version && cargo --version      # Print version info for debugging
   - cargo build
-# - cargo test --all --verbose
