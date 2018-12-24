@@ -9,6 +9,12 @@ readme = "README.md"
 keywords = ["torrent", "bittorrent", "transmission"]
 license = "MIT"
 license-file = "LICENSE"
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "wrapper.h",
+    "vendor/libtransmission/*"
+]
 
 [badges]
 gitlab = { repository = "https://gitlab.com/rushsteve1/transmission-sys", branch = "master" }
