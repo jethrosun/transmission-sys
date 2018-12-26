@@ -1,10 +1,10 @@
 [package]
 name = "transmission-sys"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
-repository = "https://gitlab.com/rushsteve1/transmission-sys"
+repository = "https://gitlab.com/tornado-torrent/transmission-sys"
 readme = "README.md"
 categories = ["external-ffi-bindings"]
 keywords = ["torrent", "bittorrent", "transmission"]
@@ -17,7 +17,7 @@ include = [
 ]
 
 [badges]
-gitlab = { repository = "rushsteve1/transmission-sys", branch = "master" }
+gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
 
 [build-dependencies]
 bindgen = "^0.45"
