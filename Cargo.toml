@@ -1,6 +1,6 @@
 [package]
 name = "transmission-sys"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
@@ -9,7 +9,6 @@ readme = "README.md"
 categories = ["external-ffi-bindings"]
 keywords = ["torrent", "bittorrent", "transmission"]
 license = "MIT"
-license-file = "LICENSE"
 include = [
     "**/*.rs",
     "Cargo.toml",
