@@ -4,6 +4,8 @@ use std::path::PathBuf;
 use bindgen;
 
 fn main() {
+    println!("cargo:rustc-link-lib=transmission"); 
+
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
         .generate()
