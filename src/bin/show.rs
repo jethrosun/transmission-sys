@@ -1,5 +1,6 @@
 //! This is a translation of [Transmission's show tool](https://github.com/transmission/transmission/blob/master/utils/show.c)
 
+/*
 use std::ffi;
 use std::ptr;
 use std::os::raw;
@@ -46,6 +47,7 @@ unsafe fn doShowMagnet(inf: *const transmission_sys::tr_info) {
 unsafe fn compare_files_by_name() {
     unimplemented!();
 }
+*/
 
 fn main() {
     unimplemented!();

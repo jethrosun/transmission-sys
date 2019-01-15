@@ -1,6 +1,6 @@
 [package]
 name = "transmission-sys"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
@@ -13,13 +13,15 @@ include = [
     "**/*.rs",
     "Cargo.toml",
     "wrapper.h",
+    "vendor/CMakeLists.txt",
+    "vendor/cmake/*",
+    "vendor/third-party/*",
     "vendor/libtransmission/*"
 ]
-links = "transmission"
-build = "build.rs"
 
 [badges]
 gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
 
 [build-dependencies]
 bindgen = "^0.45"
+cmake = "^0.1"
