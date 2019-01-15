@@ -15,7 +15,7 @@ First make sure you have all the dependencies listed below then run
 - libopenssl-devel
 - libcurl-devel
 - libevent-devel
-- autotools (automake, autoconf, libtool)
+- cmake
 
 
 ## Manually Building
