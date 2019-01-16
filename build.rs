@@ -7,14 +7,16 @@ use cmake;
 fn main() {
     // This links a system-installed libtransmission
     // Uncomment if you want to use the system version
-    // println!("cargo:rustc-link-lib=transmission"); 
-
+    println!("cargo:rustc-link-lib=transmission");
+    println!("cargo:rustc-link-lib=crypto");
+    println!("cargo:rustc-link-lib=z");
     println!("cargo:rustc-link-lib=dylib=event");
     println!("cargo:rustc-link-lib=dylib=event_core");
     println!("cargo:rustc-link-lib=dylib=event_extra");
 
     // This builds and links the bundled libtransmission
     // Comment until indicated if you want to use the system version
+    /*
     let dst = cmake::Config::new("vendor")
         // Turn everything we don't want off
         .define("ENABLE_DAEMON", "OFF")
@@ -47,7 +49,7 @@ fn main() {
     println!("cargo:rustc-link-search=native={}", dst.join("lib64").display());
     println!("cargo:rustc-link-lib=static=transmission");
     // Stop commenting here if using the system version
-
+    */
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
         // Comment out to enable layout tests
