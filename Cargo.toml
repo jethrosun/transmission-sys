@@ -25,3 +25,7 @@ gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
 [build-dependencies]
 bindgen = "^0.45"
 cmake = "^0.1"
+cc = "1.0.25"
+
+[package.metadata.pkg-config]
+openssl = "1.0.1"
