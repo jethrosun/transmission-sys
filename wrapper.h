@@ -14,5 +14,5 @@
 #include "vendor/libtransmission/web.h"
 #include "vendor/libtransmission/libtransmission-test.h"
 // #include "vendor/libtransmission/version.h"
-// #include "vendor/libtransmission/web.h" /* tr_webRun */
+#include "vendor/libtransmission/web.h" /* tr_webRun */
 
