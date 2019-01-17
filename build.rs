@@ -7,6 +7,7 @@ use cmake;
 fn main() {
     // This links a system-installed libtransmission
     // Uncomment if you want to use the system version
+    /*
     println!("cargo:rustc-link-lib=transmission");
     println!("cargo:rustc-link-lib=crypto");
     println!("cargo:rustc-link-lib=z");
@@ -16,7 +17,7 @@ fn main() {
 
     // This builds and links the bundled libtransmission
     // Comment until indicated if you want to use the system version
-    /*
+    */
     let dst = cmake::Config::new("vendor")
         // Turn everything we don't want off
         .define("ENABLE_DAEMON", "OFF")
@@ -46,10 +47,32 @@ fn main() {
         .define("USE_SYSTEM_EVENT2", "ON")
         .build();
     
+    let dst_natpmp = cmake::Config::new("third-party/libnatpmp").build();
+    let dst_utp = cmake::Config::new("third-party/libutp").build();
+    let dst_miniupnpc = cmake::Config::new("third-party/miniupnpc").build();
+    let dst_dht = cmake::Config::new("third-party/dht").build();
+    let dst_b64 = cmake::Config::new("third-party/libb64").build();
+    
+    // Link transmission
     println!("cargo:rustc-link-search=native={}", dst.join("lib64").display());
     println!("cargo:rustc-link-lib=static=transmission");
+    println!("cargo:rustc-link-search=native={}", dst_natpmp.join("lib").display());
+    println!("cargo:rustc-link-lib=static=natpmp");
+    println!("cargo:rustc-link-search=native={}", dst_utp.join("lib").display());
+    println!("cargo:rustc-link-lib=static=utp");
+    println!("cargo:rustc-link-search=native={}", dst_miniupnpc.join("lib").display());
+    println!("cargo:rustc-link-lib=static=miniupnpc");
+    println!("cargo:rustc-link-search=native={}", dst_dht.join("lib").display());
+    println!("cargo:rustc-link-lib=static=dht");
+    println!("cargo:rustc-link-search=native={}", dst_b64.join("lib").display());
+    println!("cargo:rustc-link-lib=static=b64");
+    println!("cargo:rustc-link-lib=crypto");
+    println!("cargo:rustc-link-lib=z");
+    println!("cargo:rustc-link-lib=curl");
+    println!("cargo:rustc-link-lib=dylib=event");
+    println!("cargo:rustc-link-lib=dylib=event_core");
+    println!("cargo:rustc-link-lib=dylib=event_extra");
     // Stop commenting here if using the system version
-    */
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
         // Comment out to enable layout tests
