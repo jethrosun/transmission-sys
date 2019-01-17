@@ -36,7 +36,6 @@ THE SOFTWARE.
 #include <errno.h>
 #include <string.h>
 #include <stdarg.h>
-#include "tr-dht.h"
 
 #if !defined(_WIN32) || defined(__MINGW32__)
 #include <sys/time.h>
