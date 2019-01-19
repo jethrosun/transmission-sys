@@ -18,7 +18,7 @@ fn main() {
     // This builds and links the bundled libtransmission
     // Comment until indicated if you want to use the system version
     */
-    let dst = cmake::Config::new("vendor")
+    let dst = cmake::Config::new("transmission")
         // Turn everything we don't want off
         .define("ENABLE_DAEMON", "OFF")
         .define("ENABLE_GTK", "OFF")
@@ -46,26 +46,30 @@ fn main() {
         // This is until Transmission fixes it
         .define("USE_SYSTEM_EVENT2", "ON")
         .build();
-    
-    let dst_natpmp = cmake::Config::new("/vendor/third-party/libnatpmp").build();
-    let dst_utp = cmake::Config::new("/vendor/third-party/libutp").build();
-    let dst_miniupnpc = cmake::Config::new("/vendor/third-party/miniupnpc").build();
-    let dst_dht = cmake::Config::new("/vendor/third-party/dht").build();
-    let dst_b64 = cmake::Config::new("/vendor/third-party/libb64").build();
-    
-    // Link transmission
     println!("cargo:rustc-link-search=native={}", dst.join("lib64").display());
     println!("cargo:rustc-link-lib=static=transmission");
+    
+    let dst_natpmp = cmake::Config::new("transmission/third-party/libnatpmp").build();
+    
     println!("cargo:rustc-link-search=native={}", dst_natpmp.join("lib").display());
     println!("cargo:rustc-link-lib=static=natpmp");
+
+    let dst_utp = cmake::Config::new("transmission/third-party/libutp").build();
     println!("cargo:rustc-link-search=native={}", dst_utp.join("lib").display());
     println!("cargo:rustc-link-lib=static=utp");
+
+    let dst_miniupnpc = cmake::Config::new("transmission/third-party/miniupnpc").build();
     println!("cargo:rustc-link-search=native={}", dst_miniupnpc.join("lib").display());
     println!("cargo:rustc-link-lib=static=miniupnpc");
+
+    let dst_dht = cmake::Config::new("transmission/third-party/dht").build();
     println!("cargo:rustc-link-search=native={}", dst_dht.join("lib").display());
     println!("cargo:rustc-link-lib=static=dht");
+
+    let dst_b64 = cmake::Config::new("transmission/third-party/libb64").build();
     println!("cargo:rustc-link-search=native={}", dst_b64.join("lib").display());
     println!("cargo:rustc-link-lib=static=b64");
+
     println!("cargo:rustc-link-lib=crypto");
     println!("cargo:rustc-link-lib=z");
     println!("cargo:rustc-link-lib=curl");
