@@ -47,11 +47,11 @@ fn main() {
         .define("USE_SYSTEM_EVENT2", "ON")
         .build();
     
-    let dst_natpmp = cmake::Config::new("third-party/libnatpmp").build();
-    let dst_utp = cmake::Config::new("third-party/libutp").build();
-    let dst_miniupnpc = cmake::Config::new("third-party/miniupnpc").build();
-    let dst_dht = cmake::Config::new("third-party/dht").build();
-    let dst_b64 = cmake::Config::new("third-party/libb64").build();
+    let dst_natpmp = cmake::Config::new("/vendor/third-party/libnatpmp").build();
+    let dst_utp = cmake::Config::new("/vendor/third-party/libutp").build();
+    let dst_miniupnpc = cmake::Config::new("/vendor/third-party/miniupnpc").build();
+    let dst_dht = cmake::Config::new("/vendor/third-party/dht").build();
+    let dst_b64 = cmake::Config::new("/vendor/third-party/libb64").build();
     
     // Link transmission
     println!("cargo:rustc-link-search=native={}", dst.join("lib64").display());
