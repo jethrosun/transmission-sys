@@ -1,6 +1,6 @@
 [package]
 name = "transmission-sys"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
@@ -13,10 +13,10 @@ include = [
     "**/*.rs",
     "Cargo.toml",
     "wrapper.h",
-    "vendor/CMakeLists.txt",
-    "vendor/cmake/*",
-    "vendor/third-party/*",
-    "vendor/libtransmission/*"
+    "transmission/CMakeLists.txt",
+    "transmission/cmake/*",
+    "transmission/third-party/*",
+    "transmission/libtransmission/*"
 ]
 
 [badges]
