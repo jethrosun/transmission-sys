@@ -1,7 +1,7 @@
 [package]
 name = "transmission-sys"
 version = "0.1.5"
-authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>"]
+authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>", "Daniel McCrevan <danielmccrevan@gmail.com>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
 repository = "https://gitlab.com/tornado-torrent/transmission-sys"
