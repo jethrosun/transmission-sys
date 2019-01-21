@@ -60,11 +60,8 @@ fn main() {
     println!("cargo:rustc-link-lib=static=b64");
 
     // Link dependencies
-    let st = if cfg!(feature = "static") { true } else { false };
+    let st = cfg!(feature = "static");
 
-    pkg_config::Config::new().statik(st).probe("openssl").unwrap();
-    pkg_config::Config::new().statik(st).probe("zlib").unwrap();
-    pkg_config::Config::new().statik(st).probe("libcurl").unwrap();
     pkg_config::Config::new().statik(st).probe("libevent").unwrap();
 
     let bindings = bindgen::Builder::default()
