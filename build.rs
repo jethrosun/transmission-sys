@@ -38,8 +38,9 @@ fn main() {
     println!("cargo:rustc-link-search=native={}", dst.join("lib64").display());
     println!("cargo:rustc-link-lib=static=transmission");
     
+    // Build and link all the bundled dependencies
+
     let dst_natpmp = cmake::Config::new("transmission/third-party/libnatpmp").build();
-    
     println!("cargo:rustc-link-search=native={}", dst_natpmp.join("lib").display());
     println!("cargo:rustc-link-lib=static=natpmp");
 
@@ -58,11 +59,6 @@ fn main() {
     let dst_b64 = cmake::Config::new("transmission/third-party/libb64").build();
     println!("cargo:rustc-link-search=native={}", dst_b64.join("lib").display());
     println!("cargo:rustc-link-lib=static=b64");
-
-    // Link dependencies
-    let st = cfg!(feature = "static");
-
-    pkg_config::Config::new().statik(st).probe("libevent").unwrap();
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")

@@ -1,6 +1,8 @@
 # transmission-sys
 Rust bindings for [Transmission](https://transmissionbt.com/) using [Rust-Bindgen](https://github.com/rust-lang/rust-bindgen).
 
+**Note this package only supports Linux at this time.**
+
 ## Building
 
 First make sure you have all the dependencies listed below then run
