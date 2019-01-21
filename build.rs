@@ -3,7 +3,6 @@ use std::path::PathBuf;
 
 use bindgen;
 use cmake;
-use pkg_config;
 
 fn main() {
     // This builds and links the bundled libtransmission
