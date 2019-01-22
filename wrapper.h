@@ -1,4 +1,11 @@
 #include "transmission/libtransmission/transmission.h"
+
+// Use this to pretend to be libtransmission
+#ifndef __TRANSMISSION__
+#define __TRANSMISSION__
+#endif
+
+#include "transmission/libtransmission/torrent.h"
 #include "transmission/libtransmission/error-types.h"
 #include "transmission/libtransmission/error.h"
 #include "transmission/libtransmission/file.h"
@@ -12,7 +19,3 @@
 #include "transmission/libtransmission/rpcimpl.h"
 #include "transmission/libtransmission/log.h"
 #include "transmission/libtransmission/web.h"
-#include "transmission/libtransmission/libtransmission-test.h"
-// #include "transmission/libtransmission/version.h"
-#include "transmission/libtransmission/web.h" /* tr_webRun */
-
