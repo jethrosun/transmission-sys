@@ -20,7 +20,7 @@ fn ctor_new_null() {
 fn session_init() {
     let name = ffi::CStr::from_bytes_with_nul(b"testing\0").unwrap();
     unsafe {
-        let settings: &mut tr_variant = mem::uninitialized();
+        let settings: *mut tr_variant = mem::uninitialized();
         tr_variantInitDict(settings, 0);
         tr_sessionGetDefaultSettings(settings);
         let configDir = tr_getDefaultConfigDir(name.as_ptr());
