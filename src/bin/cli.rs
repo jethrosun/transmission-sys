@@ -42,7 +42,10 @@ static options: [tr_option; 19] = [
     tr_option { val: 0, longName : "", description : "", shortName : "", has_arg :0, argName : "" },
 
 ];
+fn getUsage() -> String {
+    return String::from("A fast and easy BitTorren client\n\nUsage: \" transmission-cli \" [options] <file|url|magnet>");
+}
 
 fn main() {
-    println!("RAN SUCCESS :-)\n");
+    println!("{}\n", getUsage());
 }
