@@ -1,18 +1,4 @@
 #include "transmission/libtransmission/transmission.h"
-#include "transmission/libtransmission/error-types.h"
-#include "transmission/libtransmission/error.h"
-#include "transmission/libtransmission/file.h"
-#include "transmission/libtransmission/tr-getopt.h"
 #include "transmission/libtransmission/variant.h"
-#include "transmission/libtransmission/crypto-utils.h"
 #include "transmission/libtransmission/makemeta.h"
-#include "transmission/libtransmission/quark.h"
 #include "transmission/libtransmission/utils.h"
-#include "transmission/libtransmission/watchdir.h"
-#include "transmission/libtransmission/rpcimpl.h"
-#include "transmission/libtransmission/log.h"
-#include "transmission/libtransmission/web.h"
-#include "transmission/libtransmission/libtransmission-test.h"
-// #include "transmission/libtransmission/version.h"
-#include "transmission/libtransmission/web.h" /* tr_webRun */
-

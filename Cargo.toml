@@ -1,6 +1,6 @@
 [package]
 name = "transmission-sys"
-version = "0.2.0"
+version = "0.2.2"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>", "Daniel McCrevan <danielmccrevan@gmail.com>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
@@ -22,6 +22,9 @@ include = [
 [badges]
 gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
 
+[features]
+docs-only = []
+
 [dependencies]
 openssl-sys = "^0.9"
 curl-sys = "^0.4"
@@ -31,3 +34,8 @@ libevent-sys = "^0.1"
 [build-dependencies]
 bindgen = "^0.45"
 cmake = "^0.1"
+
+[package.metadata.docs.rs]
+features = [ "docs-only" ]
+no-default-features = true
+all-features = false
