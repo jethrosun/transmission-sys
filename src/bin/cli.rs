@@ -214,6 +214,22 @@ fn tr_strlration(mut buf: String, ratio: f32, buflen: usize) -> ffi::CString {
     ffi::CString::new(buf).unwrap()
 }
 
+static mut waitingOnWeb: bool = false;
+
+fn onTorrentFileDownload(
+    session: transmission_sys::tr_session,
+    did_connect: bool,
+    did_timeout: bool,
+    response_code: i64,
+    response: *const u8,
+    response_byte_count: usize,
+    ctor: &mut transmission_sys::tr_ctor,
+) {
+    unsafe {
+        transmission_sys::tr_ctorSetMetainfo(ctor, response, response_byte_count);
+        waitingOnWeb = false;
+    }
+}
 fn main() {
     unsafe {
         let buf = String::from("test");
