@@ -230,11 +230,37 @@ fn onTorrentFileDownload(
         waitingOnWeb = false;
     }
 }
+
+fn getStatusStr(st: *const transmission_sys::tr_stat, buf: String, buflen: usize) {
+    let stat = unsafe { *st };
+    if stat.activity == transmission_sys::tr_torrent_activity_TR_STATUS_CHECK_WAIT {
+        println!("Waiting to verify local files");
+    } else if stat.activity == transmission_sys::tr_torrent_activity_TR_STATUS_CHECK {
+        unsafe {
+            println!(
+                "Verifying local files ({:?}, {:?} valid)",
+                transmission_sys::tr_truncd(100 as f64 * stat.recheckProgress as f64, 2),
+                transmission_sys::tr_truncd(100 as f64 * stat.percentDone as f64, 2)
+            );
+        }
+    }
+}
 fn main() {
+    let app_name = ffi::CString::new("test").unwrap();
+    let c_dir = ffi::CString::new("/tmp/transmission-sys/").unwrap();
     unsafe {
-        let buf = String::from("test");
-        let i = tr_strlration(buf, -2.0, 4);
-        println!("{:?}", i);
+        let buf = String::from("buf");
+        let mut set: transmission_sys::tr_variant = mem::uninitialized();
+        transmission_sys::tr_variantInitDict(&mut set, 0);
+        transmission_sys::tr_sessionLoadSettings(&mut set, c_dir.as_ptr(), app_name.as_ptr());
+        let ses = transmission_sys::tr_sessionInit(c_dir.as_ptr(), false, &mut set);
+        transmission_sys::tr_variantFree(&mut set);
+        let ctor = transmission_sys::tr_ctorNew(ses.as_mut().unwrap());
+        let mut error = 0;
+        let mut dupli = 0;
+        let tor = transmission_sys::tr_torrentNew(ctor, &mut error, &mut dupli);
+        let stat = transmission_sys::tr_torrentStat(tor);
+        getStatusStr(stat, buf, 3);
     }
     println!("{}", getUsage());
 }
