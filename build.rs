@@ -7,6 +7,12 @@ use cmake;
 fn main() {
     // When in docs-only mode don't use cmake to build
     if !cfg!(feature = "docs-only") {
+
+        if !Path::new("transmission/.git").exists() {
+            let _ = Command::new("git")
+                .args(&["submodule", "update", "--init --recursive"])
+                .status();
+        }
         // This builds and links the bundled libtransmission
         let dst = cmake::Config::new("transmission")
             // Turn everything we don't want off
