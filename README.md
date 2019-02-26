@@ -1,7 +1,17 @@
 # transmission-sys
-Rust bindings for [Transmission](https://transmissionbt.com/) using [Rust-Bindgen](https://github.com/rust-lang/rust-bindgen).
+[![](https://meritbadge.herokuapp.com/transmission-sys)](https://crates.io/crates/transmission-sys)
+[![Released API docs](https://docs.rs/transmission-sys/badge.svg)](https://docs.rs/transmission-sys)
+[![pipeline status](https://gitlab.com/tornado-torrent/transmission-sys/badges/master/pipeline.svg)](https://gitlab.com/tornado-torrent/transmission-sys/commits/master)
+
+Rust bindings for [Transmission](https://transmissionbt.com/) made using [Rust-Bindgen](https://github.com/rust-lang/rust-bindgen).
+
+Created and maintained by the [Tornado Project](https://gitlab.com/tornado-torrent/)
 
 **Note this package only supports Linux at this time.**
+
+Support for MacOS and Windows is planned, but pull requests helping
+are greatly appreciated.
+Especially for MacOS because I do not have access to one.
 
 ## Building
 
@@ -13,13 +23,13 @@ First make sure you have all the dependencies listed below then run
 
 ### Dependencies
 - gcc (or Clang)
+- cmake
 - libclang-devel
 - libopenssl-devel
 - libcurl-devel
 - libevent-devel
-- cmake
 
-
+<!--
 ## Manually Building
 `transmission-sys` bundles in Transmision and compiles it for you.
 If you would instead like to build and install `libtransmission` yourself
@@ -55,3 +65,4 @@ cmake \
 This will configure cmake to build libtransmission with the proper settings.
 
 Then comment out the specified portions of `build.rs` and run `cargo build --lib` as normal.
+-->
