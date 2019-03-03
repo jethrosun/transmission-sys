@@ -1,6 +1,6 @@
 [package]
 name = "transmission-sys"
-version = "0.3.1"
+version = "0.3.2"
 authors = ["Steven vanZyl <rushsteve1@rushsteve1.us>", "Daniel McCrevan <danielmccrevan@gmail.com>"]
 edition = "2018"
 description = "Rust bindings for the Transmission bittorrent client."
@@ -30,7 +30,7 @@ static = []
 openssl-sys = "^0.9"
 curl-sys = "^0.4"
 libz-sys = "^1.0"
-libevent-sys = "^0.1"
+libevent-sys = "^0.2"
 
 [build-dependencies]
 bindgen = "^0.45"
