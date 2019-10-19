@@ -30,10 +30,10 @@ static = []
 openssl-sys = "^0.9"
 curl-sys = "^0.4"
 libz-sys = "^1.0"
-libevent-sys = "^0.2"
+libevent-sys = { git = "https://github.com/jethrosun/libevent-sys", branch = "pvn" }
 
 [build-dependencies]
-bindgen = "^0.45"
+bindgen = "^0.50"
 cmake = "^0.1"
 
 [package.metadata.docs.rs]
