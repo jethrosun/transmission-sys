@@ -18,6 +18,7 @@ include = [
     "transmission/third-party/*",
     "transmission/libtransmission/*"
 ]
+build = "build.rs"
 
 [badges]
 gitlab = { repository = "tornado-torrent/transmission-sys", branch = "master" }
@@ -33,7 +34,7 @@ libz-sys = "^1.0"
 libevent-sys = { git = "https://github.com/jethrosun/libevent-sys", branch = "pvn" }
 
 [build-dependencies]
-bindgen = "^0.50"
+bindgen = "^0.54.1"
 cmake = "^0.1"
 
 [package.metadata.docs.rs]
